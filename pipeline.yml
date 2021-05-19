@@ -19,7 +19,7 @@ jobs:
     public: true
     plan:
       - get: git-resource
-      - put: hello-world-docker-image
+      - put: docker-hub
         params:
           build: git-resource
       - task: run
