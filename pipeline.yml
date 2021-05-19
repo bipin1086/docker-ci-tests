@@ -22,6 +22,7 @@ jobs:
       - put: docker-hub
         params:
           build: git-resource
+          labels_file: git-resource/.git/HEAD
       - task: run
         config:
           platform: linux
