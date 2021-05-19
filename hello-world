@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Hello ${NAME}"
+echo "Hello ${NAME:-world}"
