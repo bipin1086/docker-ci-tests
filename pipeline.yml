@@ -14,7 +14,7 @@ resources:
       username: ((docker-hub-username))
       password: ((docker-hub-password))
       repository: ((docker-hub-username))/mkdocs-ci-image
-      
+
   - name: version
     type: semver
     source:
@@ -37,8 +37,8 @@ jobs:
         params:
           build: git-resource
           tag_as_latest: true
-          tag: version/number
-          tag_prefix: true
+          tag_file: version/version
+          tag_prefix: v
       - put: version
         params: {file: version/version}
       - task: run
