@@ -12,7 +12,7 @@ resources:
       email: ((docker-hub-email))
       username: ((docker-hub-username))
       password: ((docker-hub-password))
-      repository: ((docker-hub-username))/tutorial-hello-world
+      repository: ((docker-hub-username))/mkdocs-ci-test
 
 jobs:
   - name: publish
@@ -23,16 +23,14 @@ jobs:
         params:
           build: git-resource
           tag_file: git-resource/.git/HEAD
+          tag_as_latest: true
       - task: run
         config:
           platform: linux
           image_resource:
             type: docker-image
-            source: {repository: ((docker-hub-username))/tutorial-hello-world}
+            source: {repository: ((docker-hub-username))/mkdocs-ci-test}
           run:
-            path: /bin/hello-world
-            args: []
-          params:
-            NAME: ((docker-hub-username))
-
+            path: mkdocs
+            args: ["--version"]
 
