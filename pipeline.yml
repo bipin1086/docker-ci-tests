@@ -28,11 +28,12 @@ resources:
 
 jobs:
   - name: publish
-    public: true 
+    public: true
+    serial: true 
     plan:
       - get: git-resource
       - get: version
-        params: {bump: MINOR}
+        params: {bump: minor}
       - put: docker-hub
         params:
           build: git-resource
