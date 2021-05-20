@@ -6,8 +6,8 @@
 # ENTRYPOINT ["/bin/hello-world"]
 FROM python:alpine
 
-RUN apk add build-base
+RUN apk add build-base git
 RUN pip install mkdocs mkdocs-material Pygments markdown pymdown-extensions mkdocs-material-extensions
 
-ENTRYPOINT ["python"]
-CMD ["--version"]
+
+CMD ["python"]
